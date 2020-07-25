@@ -59,7 +59,7 @@ else:
     input_df = user_input_features()
     st.write(input_df)
 
-rf = pandas.read_pickle('rf2.sav')
+rf = pd.read_pickle('rf2.sav')
 #rf = jl.load("rf.sav")
 #with open('rf2.sav', 'rb') as pickle_file:
     #rf = pickle.load(pickle_file)
