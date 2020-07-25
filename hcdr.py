@@ -59,9 +59,10 @@ else:
     input_df = user_input_features()
     st.write(input_df)
 
+rf = pandas.read_pickle('rf2.sav')
 #rf = jl.load("rf.sav")
-with open('rf2.sav', 'rb') as pickle_file:
-    rf = pickle.load(pickle_file)
+#with open('rf2.sav', 'rb') as pickle_file:
+    #rf = pickle.load(pickle_file)
 		
 if input_df.size <= 25:	
 		input_df = pd.read_csv("rf0.csv")
