@@ -78,7 +78,7 @@ if input_df.size <= 25:
 		
 #log_reg_pred2 = rf.predict_proba(input_df)
 
-p=model.predict(t)
+p=model.predict(input_df)
 
 st.subheader('Prediction Probability')
 #st.write(log_reg_pred2)
