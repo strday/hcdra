@@ -42,8 +42,8 @@ def user_input_features():
 						'Extra Income #1 (USD)': e1,
 						'Extra Income #2 (USD)': e2,
 						'Extra Income #3 (USD)': e3}
-		#features = pd.DataFrame(data, index=[0])
-		features = {pr, e1, e2, e3}
+		features = pd.DataFrame(data, index=[0])
+		#features = {pr, e1, e2, e3}
 		return features
 				
 st.write("""
