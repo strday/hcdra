@@ -1,12 +1,15 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle 
-from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestClassifier
-import joblib as jl
+#import pickle 
+from keras.models import Sequential
+from keras.layers.core import Dense
+from keras.optimizers import SGD
+#from sklearn.preprocessing import LabelEncoder
+#from sklearn.ensemble import RandomForestClassifier
+#import joblib as jl
 import os
-import gzip
+#import gzip
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -59,14 +62,22 @@ else:
     input_df = user_input_features()
     st.write(input_df)
 
-rf = pd.read_pickle('rf2.sav')
+#rf = pd.read_pickle('rf2.sav')
 #rf = jl.load("rf.sav")
 #with open('rf2.sav', 'rb') as pickle_file:
     #rf = pickle.load(pickle_file)
-		
+	
+from keras.models import load_model
+model=load_model('hcrda.h5')
+
 if input_df.size <= 25:	
-		input_df = pd.read_csv("rf0.csv")
-log_reg_pred2 = rf.predict_proba(input_df)
+		#input_df = pd.read_csv("rf0.csv")
+		input_df = pd.read_csv("feat00.csv")
+		
+#log_reg_pred2 = rf.predict_proba(input_df)
+
+p=model.predict(t)
 
 st.subheader('Prediction Probability')
-st.write(log_reg_pred2)
+#st.write(log_reg_pred2)
+st.write(p)
