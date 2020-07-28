@@ -78,7 +78,7 @@ model = tf.keras.models.load_model('hcrda.h5')
 
 if input_df.size <= 25:	
 		#input_df = pd.read_csv("rf0.csv")
-		input_df = np.genfromtxt('tes0.csv', delimiter=",")
+		input_df = np.genfromtxt('tes0.csv', delimiter=",").T
 		
 #log_reg_pred2 = rf.predict_proba(input_df)
 
