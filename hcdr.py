@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 #import pickle 
+import tensorflow as tf
+from tensorflow import keras
 from keras.models import Sequential
 from keras.layers.core import Dense
 from keras.optimizers import SGD
@@ -69,8 +71,10 @@ else:
 #with open('rf2.sav', 'rb') as pickle_file:
     #rf = pickle.load(pickle_file)
 	
-from keras.models import load_model
-model=load_model('hcrda.h5')
+#from keras.models import load_model
+#model=load_model('hcrda.h5')
+
+model = tf.keras.models.load_model('hcrda.h5')
 
 if input_df.size <= 25:	
 		#input_df = pd.read_csv("rf0.csv")
