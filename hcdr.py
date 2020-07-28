@@ -42,7 +42,8 @@ def user_input_features():
 						'Extra Income #1 (USD)': e1,
 						'Extra Income #2 (USD)': e2,
 						'Extra Income #3 (USD)': e3}
-		features = pd.DataFrame(data, index=[0])
+		#features = pd.DataFrame(data, index=[0])
+		features = {pr, e1, e2, e3}
 		return features
 				
 st.write("""
@@ -56,7 +57,8 @@ st.subheader('User Input Data')
 
 uploaded_file = st.sidebar.file_uploader("", type=["csv"])
 if uploaded_file is not None:
-    input_df = pd.read_csv(uploaded_file)
+    #input_df = pd.read_csv(uploaded_file)
+    input_df = np.genfromtxt(uploaded_file, delimiter=",")
     st.write(input_df)
 else:
     input_df = user_input_features()
@@ -72,7 +74,7 @@ model=load_model('hcrda.h5')
 
 if input_df.size <= 25:	
 		#input_df = pd.read_csv("rf0.csv")
-		input_df = pd.read_csv("tes10.csv")
+		input_df = np.genfromtxt('tes10.csv', delimiter=",")
 		
 #log_reg_pred2 = rf.predict_proba(input_df)
 
